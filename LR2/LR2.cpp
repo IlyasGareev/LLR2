@@ -36,6 +36,32 @@ void Point::reset() {
     y = 0;
 }
 
+class ColoredPoint : public Point {                          //класс потомок
+protected:
+    int color;
+public:
+    ColoredPoint() : Point() {
+        printf("ColoredPoint()\n");
+        color = 0;
+    }
+    ColoredPoint(int x, int y, int color) : Point(x, y) {
+        printf("ColoredPoint(int x, int y)\n");
+        this->color = color;
+    }
+    ColoredPoint(const ColoredPoint& p) {
+        printf("ColoredPoint(const Point &p)\n");
+        x = p.x;
+        y = p.y;
+        color = p.color;
+    }
+    ~ColoredPoint() {
+        printf("%d, %d color=%d\n", x, y, color);                //вывод текущего состояния объекта
+        printf("~ColoredPoint()\n");
+    }
+    void ChangeColor(int NewColor) {
+        color = NewColor;
+    }
+};
 
 int main()
 {
@@ -68,6 +94,17 @@ int main()
         p2->move(1, 1);
         p3->reset();
         p3->move(2, 2);
+
+        delete p;
+        delete p2;
+        delete p3;
+    }
+    printf("--------------------------------------------------------------\n");
+    {
+        printf("Объекты класса наследника\n");
+        ColoredPoint* p = new ColoredPoint(7, 8, 99);
+        ColoredPoint* p2 = new ColoredPoint(1, 2, 3);
+        ColoredPoint* p3 = new ColoredPoint(*p2);
 
         delete p;
         delete p2;
