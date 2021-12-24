@@ -128,7 +128,7 @@ int main()
     printf("--------------------------------------------------------------\n");
     {
         printf("Объекты класса наследника\n");
-        ColoredPoint* p = new ColoredPoint(7, 8, 99);
+        ColoredPoint* p = new ColoredPoint(3, 4, 87);
         ColoredPoint* p2 = new ColoredPoint(1, 2, 3);
         ColoredPoint* p3 = new ColoredPoint(*p2);
 
@@ -139,7 +139,7 @@ int main()
     printf("--------------------------------------------------------------\n");
     {
         printf("Помещение объектов в переменные различных типов\n");
-        Point* p1 = new ColoredPoint(7, 8, 99);
+        Point* p1 = new ColoredPoint(3, 4, 87);
         ColoredPoint* p2 = new ColoredPoint(1, 2, 3);
         p1->reset();
         p2->ChangeColor(4);
