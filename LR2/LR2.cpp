@@ -110,4 +110,14 @@ int main()
         delete p2;
         delete p3;
     }
+    printf("--------------------------------------------------------------\n");
+    {
+        printf("Помещение объектов в переменные различных типов\n");
+        Point* p1 = new ColoredPoint(7, 8, 99);
+        ColoredPoint* p2 = new ColoredPoint(1, 2, 3);
+        p1->reset();
+        p2->ChangeColor(4);
+        delete p1;
+        delete p2;
+    }
 }
