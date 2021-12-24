@@ -58,4 +58,19 @@ int main()
         delete p2;
         delete p3;
     }
+    printf("--------------------------------------------------------------\n");
+    {
+        printf("Изменение координат объектов с заданными координатами\n");
+        Point* p = new Point(7, 17);
+        Point* p2 = new Point(4, 4);
+        Point* p3 = new Point(*p2);
+        p->move(3, 3);
+        p2->move(1, 1);
+        p3->reset();
+        p3->move(2, 2);
+
+        delete p;
+        delete p2;
+        delete p3;
+    }
 }
